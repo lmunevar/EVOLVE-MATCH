@@ -1,11 +1,12 @@
 # EVOLVE MATCH
 
-Version lista para compartir con el equipo: v3.6.
+Version lista para compartir con el equipo: v3.8.
 
 ## Archivos
 
 - `index.html`: archivo principal para abrir la herramienta.
-- `EVOLVE-MATCH v3.6.html`: copia versionada de respaldo.
+- `EVOLVE-MATCH v3.8.html`: copia versionada de respaldo.
+- `apps-script-logger-v3.7.js`: codigo del Web App de Google Apps Script para alimentar el Spreadsheet.
 - `Storytelling-FullVersion.mp4`: video usado en la seccion de Storytelling.
 
 ## Uso
@@ -14,4 +15,4 @@ Abrir `index.html` en el navegador. Mantener el video en la misma carpeta para q
 
 La herramienta guarda la informacion de sesion en el navegador del operador mediante almacenamiento local.
 
-Desde la version 3.4, al finalizar un Match la herramienta envia el registro del proceso a la hoja central de Google Sheets. La version 3.5 ubica la informacion del examen TECS de ILTO dentro de la etapa Sistema. La version 3.6 agrega un boton privado en el panel azul para enviar o reintentar el registro manualmente.
+Desde la version 3.4, al finalizar un Match la herramienta envia el registro del proceso a la hoja central de Google Sheets. La version 3.5 ubica la informacion del examen TECS de ILTO dentro de la etapa Sistema. La version 3.6 agrega un boton privado en el panel azul para enviar o reintentar el registro manualmente. La version 3.7 cambia el envio para que se registre como doGet en Apps Script y sea visible en Executions. La version 3.8 abre el registro en una pestaña de Google para confirmar visualmente que la fila fue creada.
