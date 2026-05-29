@@ -892,9 +892,10 @@ body[data-modalidad="virtual"] .cita-virtual { display: block; }
    ============================================================ */
 .storytelling-video {
   display: block;
-  width: 100%;
+  width: 70%;
+  max-width: 860px;
   border-radius: 8px;
-  margin-top: 12px;
+  margin: 12px auto 0;
   background: #000;
 }
 .standalone-html-frame {
@@ -908,11 +909,18 @@ body[data-modalidad="virtual"] .cita-virtual { display: block; }
   margin: 12px 0 18px;
   background: #fff;
 }
+.education-colombia-frame {
+  aspect-ratio: 16 / 9;
+  min-height: 420px;
+  background: #050505;
+}
 .storytelling-animation-frame {
   margin-top: 14px;
 }
 @media (max-width: 760px) {
   .standalone-html-frame { min-height: 420px; }
+  .storytelling-video { width: 100%; }
+  .calibracion-checks { grid-template-columns: 1fr; }
 }
 .fases-grid {
   display: grid;
@@ -974,6 +982,20 @@ body[data-modalidad="virtual"] .cita-virtual { display: block; }
   gap: 10px;
   margin-top: 12px;
 }
+.material-hero {
+  margin: 12px 0 16px;
+  padding: 18px;
+  background: linear-gradient(135deg, rgba(21,157,139,0.08), rgba(56,81,110,0.05));
+  border: 1px solid var(--neutral-200);
+  border-radius: var(--radius-lg);
+}
+.material-hero img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+}
 .material-card {
   display: flex;
   align-items: flex-start;
@@ -1004,6 +1026,42 @@ body[data-modalidad="virtual"] .cita-virtual { display: block; }
   font-size: 12.5px;
   color: var(--neutral-700);
   line-height: 1.5;
+}
+
+.calibracion-checks {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 14px;
+}
+.calibracion-check {
+  background: var(--blanco);
+  border: 1.5px solid var(--evolve-teal);
+  border-radius: var(--radius-md);
+  padding: 14px 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--evolve-azul-oscuro);
+  font-weight: 800;
+  min-height: 62px;
+}
+.calibracion-check::before {
+  content: '';
+  width: 28px;
+  height: 28px;
+  border-radius: 7px;
+  border: 2px solid var(--evolve-teal);
+  background: var(--evolve-teal-pastel);
+  flex-shrink: 0;
+}
+.calibracion-check[data-valor="si"]::after {
+  content: 'Sí';
+  font-size: 15px;
+}
+.calibracion-check[data-valor="no"]::after {
+  content: 'No';
+  font-size: 15px;
 }
 
 .read-secuencia {
@@ -2649,11 +2707,11 @@ body[data-modalidad="virtual"] .cita-virtual { display: block; }
 .welcome-splash {
   background: linear-gradient(145deg, var(--evolve-azul-oscuro) 0%, var(--evolve-azul-medio) 60%, var(--evolve-teal-oscuro) 100%);
   border-radius: var(--radius-lg);
-  padding: 44px 40px 40px;
+  padding: 26px 34px 28px;
   text-align: center;
-  margin-bottom: 22px;
+  margin-bottom: 16px;
   position: sticky;
-  top: 16px;
+  top: 12px;
   z-index: 5;
   overflow: hidden;
   box-shadow: var(--shadow-md);
@@ -2680,29 +2738,29 @@ body[data-modalidad="virtual"] .cita-virtual { display: block; }
 
 .welcome-splash-logo {
   display: block;
-  margin: 0 auto 22px;
-  height: 56px;
+  margin: 0 auto 14px;
+  height: 42px;
   width: auto;
   max-width: 80%;
   filter: drop-shadow(0 4px 16px rgba(0,0,0,0.25));
   animation: welcomeFadeUp 0.8s ease;
 }
 .welcome-splash-titulo {
-  font-size: 13px;
-  letter-spacing: 0.24em;
+  font-size: 11px;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--evolve-teal-claro);
   font-weight: 700;
-  margin-bottom: 10px;
+  margin-bottom: 6px;
   animation: welcomeFadeUp 0.8s ease 0.1s backwards;
 }
 .welcome-splash-h1 {
-  font-size: 32px;
+  font-size: 28px;
   font-weight: 800;
   color: var(--blanco);
-  letter-spacing: -0.015em;
+  letter-spacing: 0;
   line-height: 1.1;
-  margin-bottom: 12px;
+  margin-bottom: 8px;
   animation: welcomeFadeUp 0.8s ease 0.2s backwards;
 }
 .welcome-splash-h1 em {
@@ -2710,23 +2768,23 @@ body[data-modalidad="virtual"] .cita-virtual { display: block; }
   color: var(--evolve-teal-claro);
 }
 .welcome-splash-sub {
-  font-size: 15px;
+  font-size: 14px;
   color: rgba(255,255,255,0.88);
-  line-height: 1.5;
+  line-height: 1.42;
   max-width: 480px;
-  margin: 0 auto 18px;
+  margin: 0 auto 12px;
   animation: welcomeFadeUp 0.8s ease 0.3s backwards;
 }
 .welcome-splash-meta {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  padding: 8px 18px;
+  padding: 7px 16px;
   background: rgba(255,255,255,0.08);
   border: 1px solid rgba(255,255,255,0.18);
   border-radius: 999px;
-  font-size: 11.5px;
-  letter-spacing: 0.16em;
+  font-size: 11px;
+  letter-spacing: 0.13em;
   text-transform: uppercase;
   font-weight: 700;
   color: var(--evolve-teal-claro);
@@ -3290,6 +3348,75 @@ body[data-modalidad="virtual"] .azul-script-cita-virtual { display: block; }
   letter-spacing: 0.04em;
 }
 .ok-coaching-alerta em { color: rgba(255,255,255,0.82); font-style: italic; }
+
+.ok-candado {
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.18);
+  border-radius: var(--radius-sm);
+  padding: 10px 11px;
+  margin: 10px 0;
+}
+.ok-candado-h {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--evolve-teal-claro);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+.ok-candado-pregunta {
+  color: rgba(255,255,255,0.84);
+  font-size: 11.5px;
+  line-height: 1.5;
+  margin-bottom: 8px;
+  font-style: italic;
+}
+.ok-candado-opciones {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 6px;
+}
+.btn-candado-ok {
+  border: 1.5px solid rgba(255,255,255,0.2);
+  background: rgba(255,255,255,0.05);
+  border-radius: var(--radius-sm);
+  color: rgba(255,255,255,0.86);
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 11px;
+  font-weight: 800;
+  line-height: 1.25;
+  min-height: 38px;
+  padding: 8px 9px;
+  text-align: center;
+  transition: all 0.15s ease;
+}
+.btn-candado-ok:hover,
+.btn-candado-ok.activo {
+  background: rgba(91,154,130,0.26);
+  border-color: var(--evolve-teal);
+  color: var(--blanco);
+}
+.ok-candado-status {
+  display: none;
+  margin-top: 8px;
+  padding: 7px 9px;
+  background: rgba(91,154,130,0.18);
+  border-radius: var(--radius-sm);
+  color: rgba(255,255,255,0.84);
+  font-size: 11px;
+  font-weight: 700;
+}
+.ok-candado-status.visible { display: block; }
+.ok-candado-seguimiento {
+  margin-top: 8px;
+  color: rgba(255,255,255,0.72);
+  font-size: 11px;
+  line-height: 1.45;
+}
 
 .ok-coaching-pregunta-rotulo {
   font-size: 10px;
@@ -4225,14 +4352,17 @@ body[data-modalidad="virtual"] .azul-script-cita-virtual { display: block; }
 
       <div class="bloque">
         <div class="bloque-h2"><span class="num">4</span> El material físico — qué recibes al adquirirlo</div>
+        <div class="material-hero">
+          <img src="assets/material-nuevo.png" alt="Material pedagógico EVOLVE: Storybook, Workbook, Toolbook, Playbook e Interactive-X">
+        </div>
         <div class="material-grid">
           <div class="material-card">
             <div class="material-card-icon">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
             </div>
             <div>
-              <div class="material-card-titulo">STORYBOOK · Stories</div>
-              <div class="material-card-desc">El núcleo del sistema. Las historias diseñadas para cada fase, con audios profesionalmente grabados.</div>
+              <div class="material-card-titulo">INFANT · 15 historias</div>
+              <div class="material-card-desc">Libro físico de la primera fase. Integra historias, ejercicios, guía de trabajo y práctica por unidad.</div>
             </div>
           </div>
           <div class="material-card">
@@ -4240,8 +4370,8 @@ body[data-modalidad="virtual"] .azul-script-cita-virtual { display: block; }
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg>
             </div>
             <div>
-              <div class="material-card-titulo">WORKBOOK · Exercises</div>
-              <div class="material-card-desc">Ejercicios estructurados de gramática y comprensión, una unidad por historia.</div>
+              <div class="material-card-titulo">CHILD · 15 historias</div>
+              <div class="material-card-desc">Libro físico de la segunda fase. Mantiene el mismo método con mayor complejidad comunicativa.</div>
             </div>
           </div>
           <div class="material-card">
@@ -4249,8 +4379,8 @@ body[data-modalidad="virtual"] .azul-script-cita-virtual { display: block; }
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
             </div>
             <div>
-              <div class="material-card-titulo">TOOLBOOK · Guide</div>
-              <div class="material-card-desc">Tu manual de uso del sistema y guía pedagógica de referencia.</div>
+              <div class="material-card-titulo">TEEN · 10 historias</div>
+              <div class="material-card-desc">Libro físico de avance. Enfoca uso práctico, lectura, conversación y consolidación del método.</div>
             </div>
           </div>
           <div class="material-card">
@@ -4258,8 +4388,8 @@ body[data-modalidad="virtual"] .azul-script-cita-virtual { display: block; }
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="6 3 20 12 6 21 6 3"/></svg>
             </div>
             <div>
-              <div class="material-card-titulo">PLAYBOOK · Activities</div>
-              <div class="material-card-desc">Actividades lúdicas para reforzar vocabulario y dinámicas de práctica.</div>
+              <div class="material-card-titulo">ADULT · 10 historias</div>
+              <div class="material-card-desc">Libro físico de cierre. Lleva al usuario a aplicar vocabulario, audio y estructura con autonomía.</div>
             </div>
           </div>
           <div class="material-card" style="grid-column:1/-1;">
@@ -4268,7 +4398,7 @@ body[data-modalidad="virtual"] .azul-script-cita-virtual { display: block; }
             </div>
             <div>
               <div class="material-card-titulo">INTERACTIVE-X</div>
-              <div class="material-card-desc">La práctica digital diaria de EVOLVE: ayuda al estudiante a recordar, pronunciar y usar el vocabulario de cada historia en casa. EVOLVE's Tri-Modal Encoding. Una forma de estimular el aprendizaje Imagen-Palabra-Audio.</div>
+              <div class="material-card-desc">La práctica digital diaria de EVOLVE: ayuda al usuario a recordar, pronunciar y usar el vocabulario de cada historia en casa. EVOLVE's Tri-Modal Encoding. Una forma de estimular el aprendizaje Imagen-Palabra-Audio.</div>
             </div>
           </div>
         </div>
@@ -4332,7 +4462,10 @@ body[data-modalidad="virtual"] .azul-script-cita-virtual { display: block; }
         <div class="cita">¿Tienes alguna pregunta sobre cómo funciona el entrenamiento?</div>
         <div class="cita">¿Te identificas con este sistema? ¿Te ves haciendo esta rutina?</div>
         <div class="cita"><strong>Pregunta clave</strong>: si dejamos a un lado la inversión económica, y valoramos solo por el sistema, ¿te haces usuario de EVOLVE?</div>
-        
+        <div class="calibracion-checks" aria-label="Respuesta visible del evaluado">
+          <div class="calibracion-check" data-valor="si"></div>
+          <div class="calibracion-check" data-valor="no"></div>
+        </div>
       </div>
 
       <div class="controles-avance">
@@ -4341,19 +4474,19 @@ body[data-modalidad="virtual"] .azul-script-cita-virtual { display: block; }
           Volver al diagnóstico
         </button>
         <button class="btn-primario" onclick="avanzarEstacion(4)">
-          Continuar a Estación 4 — Reto EVOLVE
+          Continuar a Estación 4 — Adquisición
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
         </button>
       </div>
     </article>
 
     <!-- ========================================================
-         ESTACIÓN 5 — ADQUISICIÓN
+         ESTACIÓN 4 — ADQUISICIÓN
          Basado en: Evaluacion_actual.docx (FASE 5 — orden estricto)
          ======================================================== -->
-    <article class="estacion" id="estacion-5">
+    <article class="estacion" id="estacion-4">
 
-      <div class="estacion-titulo">Estación 5 · 4–5 minutos</div>
+      <div class="estacion-titulo">Estación 4 · 4–5 minutos</div>
       <h1 class="estacion-h1">Adquisición del material</h1>
       <p class="estacion-h1-sub">Antes del valor, el contexto. Antes de la cifra, la lógica de qué se está adquiriendo.</p>
 
@@ -4362,15 +4495,15 @@ body[data-modalidad="virtual"] .azul-script-cita-virtual { display: block; }
         <p>La gran mayoria de personas desconocen el costo promedio de aprender ingles en Colombia. Este contexto ayuda a comparar la inversion desde una perspectiva realista.</p>
         <div class="estudio-mercado">
           <div class="mercado-row">
-            <span class="mercado-label">Instituto tradicional (12 meses)</span>
+            <span class="mercado-label">Instituto tradicional · 2 - 3 años</span>
             <span class="mercado-valor">$ 6 – 9 M COP</span>
           </div>
           <div class="mercado-row">
-            <span class="mercado-label">Universidad — extensión inglés</span>
+            <span class="mercado-label">Universidad — extensión inglés · entre 3 a 5 años</span>
             <span class="mercado-valor">$ 8 – 14 M COP</span>
           </div>
           <div class="mercado-row">
-            <span class="mercado-label">Curso virtual sin acompañamiento</span>
+            <span class="mercado-label">Curso virtual sin acompañamiento · tiempo limitado de acceso</span>
             <span class="mercado-valor">$ 1 – 3 M COP</span>
           </div>
           <div class="mercado-row evolve">
@@ -4380,6 +4513,24 @@ body[data-modalidad="virtual"] .azul-script-cita-virtual { display: block; }
         </div>
       </div>
 
+      <div class="bloque">
+        <div class="bloque-h2"><span class="num">2</span> Compromisos publicitarios del adquirente</div>
+        <p>¡Tu testimonio nos hace crecer! Anímate a ser un usuario que inspire a otros.</p>
+        <div class="cita">
+          <strong>Redes sociales</strong> — participar en las campañas de la marca.
+        </div>
+        <div class="cita">
+          <strong>Feedback continuo</strong> — para mejoramiento del sistema.
+        </div>
+        <div class="cita">
+          <strong>Storytelling personal</strong> — contar tu historia en la entrega de constancias.
+        </div>
+        <div class="cita">
+          <strong>20 Referencias</strong> — contactos de tu entorno que creas les puede beneficiar el inglés.
+        </div>
+        <p style="font-size:13px;color:var(--neutral-500);font-style:italic;">Este compromiso queda conectado con el Reto EVOLVE que se revisa en la siguiente estación.</p>
+      </div>
+
       <button class="btn-whiteboard" id="btn-wb-abrir" onclick="toggleWhiteboard()">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
         Abrir Pizarra de Precios
@@ -4387,7 +4538,10 @@ body[data-modalidad="virtual"] .azul-script-cita-virtual { display: block; }
       <div class="wb-iframe-wrapper" id="wb-iframe-wrapper">
         <div class="wb-iframe-toolbar">
           <span class="wb-iframe-toolbar-label">📋 PIZARRA DE PRECIOS</span>
-          <button class="wb-iframe-close" onclick="toggleWhiteboard()">✕ Cerrar pizarra</button>
+          <div style="display:flex;gap:8px;align-items:center;">
+            <button class="wb-iframe-close" onclick="avanzarEstacion(5)">Continuar a Reto</button>
+            <button class="wb-iframe-close" onclick="toggleWhiteboard()">✕ Cerrar pizarra</button>
+          </div>
         </div>
         <iframe id="whiteboard-frame" srcdoc="&lt;!doctype html&gt;
 &lt;html lang=&quot;es&quot;&gt;
@@ -4428,12 +4582,12 @@ body[data-modalidad="virtual"] .azul-script-cita-virtual { display: block; }
     }
 
     .wb-header {
-      height: 64px;
+      height: 48px;
       display: flex;
       align-items: center;
       justify-content: center;
       gap: clamp(18px, 3vw, 56px);
-      padding: 8px clamp(16px, 3vw, 54px);
+      padding: 6px clamp(12px, 2vw, 38px);
       border-bottom: 1px solid #eceff1;
     }
 
@@ -4455,29 +4609,29 @@ body[data-modalidad="virtual"] .azul-script-cita-virtual { display: block; }
     .wb-shell {
       min-height: 0;
       display: grid;
-      grid-template-columns: 256px 1fr;
+      grid-template-columns: 204px 1fr;
       border: 1px solid var(--line);
       border-top: 0;
       border-radius: 12px;
       overflow: hidden;
-      margin: 0 clamp(8px, 1.4vw, 24px) clamp(8px, 1.4vw, 24px);
+      margin: 0 6px 6px;
     }
 
     .wb-tools {
       background: var(--panel);
       border-right: 1px solid var(--line);
-      padding: 20px 14px;
+      padding: 12px 10px;
       overflow: auto;
     }
 
     .tool-section {
-      margin: 0 0 16px;
+      margin: 0 0 10px;
     }
 
     .tool-label {
       display: block;
-      margin: 0 0 8px;
-      font-size: 14px;
+      margin: 0 0 5px;
+      font-size: 11.5px;
       font-weight: 700;
       letter-spacing: .2px;
     }
@@ -4485,7 +4639,7 @@ body[data-modalidad="virtual"] .azul-script-cita-virtual { display: block; }
     .tool-row {
       display: flex;
       flex-wrap: wrap;
-      gap: 8px;
+      gap: 6px;
     }
 
     .tool-button,
@@ -4495,15 +4649,15 @@ body[data-modalidad="virtual"] .azul-script-cita-virtual { display: block; }
       color: #050505;
       border-radius: 8px;
       box-shadow: 0 1px 2px rgba(0, 0, 0, .08);
-      min-height: 44px;
+      min-height: 36px;
       transition: border-color .16s ease, background .16s ease, transform .16s ease;
     }
 
     .tool-button {
-      width: 62px;
+      width: 46px;
       display: inline-grid;
       place-items: center;
-      font: 600 25px/1 Arial, Helvetica, sans-serif;
+      font: 600 20px/1 Arial, Helvetica, sans-serif;
       cursor: pointer;
     }
 
@@ -4522,7 +4676,7 @@ body[data-modalidad="virtual"] .azul-script-cita-virtual { display: block; }
     }
 
     .tool-button.wide {
-      width: 92px;
+      width: 66px;
     }
 
     .tool-button.dark {
@@ -4531,14 +4685,14 @@ body[data-modalidad="virtual"] .azul-script-cita-virtual { display: block; }
     }
 
     .pen-sample {
-      width: 56px;
-      height: 22px;
+      width: 42px;
+      height: 18px;
       display: block;
     }
 
     .color-dot {
-      width: 28px;
-      height: 28px;
+      width: 22px;
+      height: 22px;
       border-radius: 50%;
       display: block;
       border: 1px solid rgba(0, 0, 0, .18);
@@ -4546,7 +4700,7 @@ body[data-modalidad="virtual"] .azul-script-cita-virtual { display: block; }
 
     .plan-select {
       width: 100%;
-      min-height: 44px;
+      min-height: 38px;
       padding: 0 36px 0 12px;
       font-size: 16px;
       font-weight: 700;
@@ -4563,10 +4717,65 @@ body[data-modalidad="virtual"] .azul-script-cita-virtual { display: block; }
       cursor: pointer;
     }
 
+    .calc-panel {
+      display: grid;
+      gap: 6px;
+    }
+
+    .calc-display {
+      width: 100%;
+      border: 1px solid #cfd3d8;
+      border-radius: 8px;
+      min-height: 36px;
+      padding: 7px 8px;
+      color: var(--evolve-blue);
+      font: 800 16px/1.2 Arial, Helvetica, sans-serif;
+      background: #fff;
+    }
+
+    .calc-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 5px;
+    }
+
+    .calc-button {
+      border: 1px solid #cfd3d8;
+      border-radius: 7px;
+      min-height: 32px;
+      background: #fff;
+      color: #111318;
+      cursor: pointer;
+      font: 800 14px/1 Arial, Helvetica, sans-serif;
+    }
+
+    .calc-button.operator {
+      background: #e8f5f2;
+      color: var(--evolve-teal);
+      border-color: rgba(21,157,139,.45);
+    }
+
+    .calc-actions {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5px;
+    }
+
+    .calc-action {
+      border: 1px solid rgba(21,157,139,.45);
+      border-radius: 7px;
+      min-height: 32px;
+      background: var(--evolve-blue);
+      color: #fff;
+      cursor: pointer;
+      font: 800 10.5px/1.1 Arial, Helvetica, sans-serif;
+      letter-spacing: .02em;
+    }
+
     .wb-board {
       position: relative;
       min-width: 0;
-      min-height: calc(100vh - 96px);
+      min-height: calc(100vh - 64px);
       background:
         radial-gradient(circle at 28% 34%, rgba(21, 157, 139, .025), transparent 32%),
         #ffffff;
@@ -4602,6 +4811,7 @@ body[data-modalidad="virtual"] .azul-script-cita-virtual { display: block; }
       line-height: 1.18;
       font-weight: 800;
       overflow-wrap: anywhere;
+      white-space: pre-line;
     }
 
     .plan-note {
@@ -4808,26 +5018,24 @@ body[data-modalidad="virtual"] .azul-script-cita-virtual { display: block; }
         &lt;/div&gt;
 
         &lt;div class=&quot;tool-section&quot;&gt;
-          &lt;span class=&quot;tool-label&quot;&gt;TEXT&lt;/span&gt;
+          &lt;span class=&quot;tool-label&quot;&gt;TEXT AND NUMBERS&lt;/span&gt;
           &lt;div class=&quot;tool-row&quot;&gt;
             &lt;button class=&quot;tool-button&quot; type=&quot;button&quot; data-tool=&quot;text&quot; aria-label=&quot;Texto&quot; title=&quot;Texto&quot;&gt;T&lt;/button&gt;
           &lt;/div&gt;
         &lt;/div&gt;
-
-        &lt;div class=&quot;tool-section&quot;&gt;
-          &lt;span class=&quot;tool-label&quot;&gt;NUMBERS&lt;/span&gt;
-          &lt;div class=&quot;tool-row&quot;&gt;
-            &lt;button class=&quot;tool-button wide&quot; type=&quot;button&quot; data-tool=&quot;number&quot; data-stamp=&quot;123&quot; aria-label=&quot;Numeros&quot; title=&quot;Numeros&quot;&gt;123&lt;/button&gt;
-          &lt;/div&gt;
-        &lt;/div&gt;
-
         &lt;div class=&quot;tool-section&quot;&gt;
           &lt;span class=&quot;tool-label&quot;&gt;SELECT &amp;amp; RESIZE&lt;/span&gt;
           &lt;div class=&quot;tool-row&quot;&gt;
             &lt;button class=&quot;tool-button&quot; type=&quot;button&quot; data-tool=&quot;select&quot; aria-label=&quot;Seleccionar&quot; title=&quot;Seleccionar&quot;&gt;⌖&lt;/button&gt;
           &lt;/div&gt;
         &lt;/div&gt;
-
+        &lt;div class=&quot;tool-section&quot;&gt;
+          &lt;span class=&quot;tool-label&quot;&gt;BORRADOR&lt;/span&gt;
+          &lt;div class=&quot;tool-row&quot;&gt;
+            &lt;button class=&quot;tool-button dark&quot; type=&quot;button&quot; data-tool=&quot;eraser&quot; aria-label=&quot;Borrador&quot; title=&quot;Borrador&quot;&gt;⌫&lt;/button&gt;
+            &lt;button class=&quot;tool-button wide&quot; type=&quot;button&quot; id=&quot;clearButton&quot; aria-label=&quot;Limpiar todo&quot; title=&quot;Limpiar todo&quot;&gt;Todo&lt;/button&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
         &lt;div class=&quot;tool-section&quot;&gt;
           &lt;span class=&quot;tool-label&quot;&gt;MATH OPERATORS&lt;/span&gt;
           &lt;div class=&quot;tool-row&quot;&gt;
@@ -4838,6 +5046,34 @@ body[data-modalidad="virtual"] .azul-script-cita-virtual { display: block; }
           &lt;/div&gt;
         &lt;/div&gt;
 
+        &lt;div class=&quot;tool-section&quot;&gt;
+          &lt;span class=&quot;tool-label&quot;&gt;CALCULADORA&lt;/span&gt;
+          &lt;div class=&quot;calc-panel&quot;&gt;
+            &lt;input class=&quot;calc-display&quot; id=&quot;calcDisplay&quot; type=&quot;text&quot; inputmode=&quot;decimal&quot; aria-label=&quot;Calculadora&quot; placeholder=&quot;0&quot;&gt;
+            &lt;div class=&quot;calc-grid&quot;&gt;
+              &lt;button class=&quot;calc-button&quot; type=&quot;button&quot; data-calc=&quot;7&quot;&gt;7&lt;/button&gt;
+              &lt;button class=&quot;calc-button&quot; type=&quot;button&quot; data-calc=&quot;8&quot;&gt;8&lt;/button&gt;
+              &lt;button class=&quot;calc-button&quot; type=&quot;button&quot; data-calc=&quot;9&quot;&gt;9&lt;/button&gt;
+              &lt;button class=&quot;calc-button operator&quot; type=&quot;button&quot; data-calc=&quot;/&quot;&gt;÷&lt;/button&gt;
+              &lt;button class=&quot;calc-button&quot; type=&quot;button&quot; data-calc=&quot;4&quot;&gt;4&lt;/button&gt;
+              &lt;button class=&quot;calc-button&quot; type=&quot;button&quot; data-calc=&quot;5&quot;&gt;5&lt;/button&gt;
+              &lt;button class=&quot;calc-button&quot; type=&quot;button&quot; data-calc=&quot;6&quot;&gt;6&lt;/button&gt;
+              &lt;button class=&quot;calc-button operator&quot; type=&quot;button&quot; data-calc=&quot;*&quot;&gt;×&lt;/button&gt;
+              &lt;button class=&quot;calc-button&quot; type=&quot;button&quot; data-calc=&quot;1&quot;&gt;1&lt;/button&gt;
+              &lt;button class=&quot;calc-button&quot; type=&quot;button&quot; data-calc=&quot;2&quot;&gt;2&lt;/button&gt;
+              &lt;button class=&quot;calc-button&quot; type=&quot;button&quot; data-calc=&quot;3&quot;&gt;3&lt;/button&gt;
+              &lt;button class=&quot;calc-button operator&quot; type=&quot;button&quot; data-calc=&quot;-&quot;&gt;−&lt;/button&gt;
+              &lt;button class=&quot;calc-button operator&quot; type=&quot;button&quot; data-calc=&quot;C&quot;&gt;C&lt;/button&gt;
+              &lt;button class=&quot;calc-button&quot; type=&quot;button&quot; data-calc=&quot;0&quot;&gt;0&lt;/button&gt;
+              &lt;button class=&quot;calc-button operator&quot; type=&quot;button&quot; data-calc=&quot;=&quot;&gt;=&lt;/button&gt;
+              &lt;button class=&quot;calc-button operator&quot; type=&quot;button&quot; data-calc=&quot;+&quot;&gt;+&lt;/button&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;calc-actions&quot;&gt;
+              &lt;button class=&quot;calc-action&quot; type=&quot;button&quot; id=&quot;copyCalcButton&quot;&gt;Copiar&lt;/button&gt;
+              &lt;button class=&quot;calc-action&quot; type=&quot;button&quot; id=&quot;insertCalcButton&quot;&gt;Insertar&lt;/button&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
         &lt;div class=&quot;tool-section&quot;&gt;
           &lt;span class=&quot;tool-label&quot;&gt;SYMBOLS&lt;/span&gt;
           &lt;div class=&quot;tool-row&quot;&gt;
@@ -4851,7 +5087,6 @@ body[data-modalidad="virtual"] .azul-script-cita-virtual { display: block; }
           &lt;span class=&quot;tool-label&quot;&gt;SHAPES&lt;/span&gt;
           &lt;div class=&quot;tool-row&quot;&gt;
             &lt;button class=&quot;tool-button&quot; type=&quot;button&quot; data-tool=&quot;circle&quot; aria-label=&quot;Circulo&quot; title=&quot;Circulo&quot;&gt;○&lt;/button&gt;
-            &lt;button class=&quot;tool-button dark&quot; type=&quot;button&quot; data-tool=&quot;eraser&quot; aria-label=&quot;Borrador&quot; title=&quot;Borrador&quot;&gt;▱&lt;/button&gt;
           &lt;/div&gt;
         &lt;/div&gt;
       &lt;/aside&gt;
@@ -4898,6 +5133,14 @@ body[data-modalidad="virtual"] .azul-script-cita-virtual { display: block; }
         label: &#x27;Plan B - 10 cuotas&#x27;,
         text: &#x27;Inicial $690.000 + 10 mensualidades ($723.000) para un total de $7.920.000&#x27;
       },
+      B68: {
+        label: &#x27;Comparativo Plan B - 6 y 8 cuotas&#x27;,
+        text: &#x27;6 cuotas: Inicial $1.272.000 + 6 mensualidades de $1.108.000\n8 cuotas: Inicial $992.000 + 8 mensualidades de $866.000&#x27;
+      },
+      B810: {
+        label: &#x27;Comparativo Plan B - 8 y 10 cuotas&#x27;,
+        text: &#x27;8 cuotas: Inicial $992.000 + 8 mensualidades de $866.000\n10 cuotas: Inicial $690.000 + 10 mensualidades de $723.000&#x27;
+      },
       C: {
         label: &#x27;Plan C&#x27;,
         text: &#x27;Inicial $588.000 + 12 mensualidades ($611.000) para un total de $7.920.000&#x27;
@@ -4924,6 +5167,11 @@ body[data-modalidad="virtual"] .azul-script-cita-virtual { display: block; }
     const textPopover = document.getElementById(&#x27;textPopover&#x27;);
     const textInput = document.getElementById(&#x27;textInput&#x27;);
     const undoButton = document.getElementById(&#x27;undoButton&#x27;);
+    const clearButton = document.getElementById(&#x27;clearButton&#x27;);
+    const calcDisplay = document.getElementById(&#x27;calcDisplay&#x27;);
+    const calcButtons = [...document.querySelectorAll(&#x27;[data-calc]&#x27;)];
+    const copyCalcButton = document.getElementById(&#x27;copyCalcButton&#x27;);
+    const insertCalcButton = document.getElementById(&#x27;insertCalcButton&#x27;);
     const toolButtons = [...document.querySelectorAll(&#x27;[data-tool]&#x27;)];
     const colorButtons = [...document.querySelectorAll(&#x27;[data-color]&#x27;)];
 
@@ -4977,6 +5225,7 @@ body[data-modalidad="virtual"] .azul-script-cita-virtual { display: block; }
       if (!last) return;
       const img = new Image();
       img.onload = () =&gt; {
+        ctx.globalCompositeOperation = &#x27;source-over&#x27;;
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         ctx.drawImage(img, 0, 0);
       };
@@ -4984,6 +5233,61 @@ body[data-modalidad="virtual"] .azul-script-cita-virtual { display: block; }
       selectedObject = null;
       bindObjects();
       img.src = last.canvas;
+    }
+
+    function clearBoard() {
+      saveState();
+      ctx.globalCompositeOperation = &#x27;source-over&#x27;;
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      objectLayer.innerHTML = &#x27;&#x27;;
+      selectedObject = null;
+    }
+
+    function evaluateCalculatorExpression(rawExpression) {
+      const expression = String(rawExpression || &#x27;&#x27;).replace(/,/g, &#x27;.&#x27;).trim();
+      if (!expression || !/^[0-9+\-*/().\s]+$/.test(expression)) return &#x27;&#x27;;
+      try {
+        const value = Function(&#x27;&quot;use strict&quot;; return (&#x27; + expression + &#x27;)&#x27;)();
+        if (!Number.isFinite(value)) return &#x27;&#x27;;
+        return Number.isInteger(value) ? String(value) : String(Math.round(value * 100) / 100);
+      } catch (error) {
+        return &#x27;&#x27;;
+      }
+    }
+
+    function handleCalculator(token) {
+      if (!calcDisplay) return;
+      if (token === &#x27;C&#x27;) {
+        calcDisplay.value = &#x27;&#x27;;
+        return;
+      }
+      if (token === &#x27;=&#x27;) {
+        const result = evaluateCalculatorExpression(calcDisplay.value);
+        calcDisplay.value = result || calcDisplay.value;
+        return;
+      }
+      calcDisplay.value += token;
+    }
+
+    function copyCalculatorResult() {
+      if (!calcDisplay || !calcDisplay.value.trim()) return;
+      const value = calcDisplay.value.trim();
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(value).catch(() =&gt; {});
+      }
+    }
+
+    function insertCalculatorResult() {
+      if (!calcDisplay || !calcDisplay.value.trim()) return;
+      saveState();
+      createObject({
+        type: &#x27;text&#x27;,
+        text: calcDisplay.value.trim(),
+        x: 96,
+        y: 96,
+        size: 44
+      });
+      setActiveTool(&#x27;select&#x27;, document.querySelector(&#x27;[data-tool=&quot;select&quot;]&#x27;));
     }
 
     function resizeCanvas() {
@@ -4995,6 +5299,7 @@ body[data-modalidad="virtual"] .azul-script-cita-virtual { display: block; }
       ctx.setTransform(1, 0, 0, 1, 0, 0);
       const img = new Image();
       img.onload = () =&gt; {
+        ctx.globalCompositeOperation = &#x27;source-over&#x27;;
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
       };
@@ -5004,8 +5309,9 @@ body[data-modalidad="virtual"] .azul-script-cita-virtual { display: block; }
     function configureStroke() {
       ctx.lineCap = &#x27;round&#x27;;
       ctx.lineJoin = &#x27;round&#x27;;
-      ctx.strokeStyle = activeTool === &#x27;eraser&#x27; ? &#x27;#ffffff&#x27; : inkColor;
-      ctx.lineWidth = activeTool === &#x27;eraser&#x27; ? 24 : lineWidth;
+      ctx.globalCompositeOperation = activeTool === &#x27;eraser&#x27; ? &#x27;destination-out&#x27; : &#x27;source-over&#x27;;
+      ctx.strokeStyle = inkColor;
+      ctx.lineWidth = activeTool === &#x27;eraser&#x27; ? 28 : lineWidth;
     }
 
     function drawLine(toPoint) {
@@ -5110,6 +5416,10 @@ body[data-modalidad="virtual"] .azul-script-cita-virtual { display: block; }
     });
 
     undoButton.addEventListener(&#x27;click&#x27;, restoreLastState);
+    if (clearButton) clearButton.addEventListener(&#x27;click&#x27;, clearBoard);
+    calcButtons.forEach(button =&gt; button.addEventListener(&#x27;click&#x27;, () =&gt; handleCalculator(button.dataset.calc)));
+    if (copyCalcButton) copyCalcButton.addEventListener(&#x27;click&#x27;, copyCalculatorResult);
+    if (insertCalcButton) insertCalcButton.addEventListener(&#x27;click&#x27;, insertCalculatorResult);
 
     board.addEventListener(&#x27;pointermove&#x27;, event =&gt; {
       if (!objectInteraction) return;
@@ -5233,6 +5543,7 @@ body[data-modalidad="virtual"] .azul-script-cita-virtual { display: block; }
       isDrawing = false;
       objectInteraction = null;
       ctx.closePath();
+      ctx.globalCompositeOperation = &#x27;source-over&#x27;;
     });
 
     textPopover.addEventListener(&#x27;submit&#x27;, event =&gt; {
@@ -5276,7 +5587,7 @@ body[data-modalidad="virtual"] .azul-script-cita-virtual { display: block; }
       </div>
 
       <div class="bloque">
-        <div class="bloque-h2"><span class="num">2</span> Modalidades de pago</div>
+        <div class="bloque-h2"><span class="num">3</span> Modalidades de pago</div>
         <p>Estos son los medios disponibles para la ciudad y editora registrada por el ejecutivo:</p>
         <div class="medios-pago-dinamicos" id="medios-pago-ciudad">
           <div class="medios-pago-header">
@@ -5289,43 +5600,25 @@ body[data-modalidad="virtual"] .azul-script-cita-virtual { display: block; }
         </div>
       </div>
 
-      <div class="bloque">
-        <div class="bloque-h2"><span class="num">3</span> Compromisos publicitarios del adquirente</div>
-        <p>¡Tu testimonio nos hace crecer! Anímate a ser un usuario que inspire a otros.</p>
-        <div class="cita">
-          <strong>Redes sociales</strong> — participar en las campañas de la marca.
-        </div>
-        <div class="cita">
-          <strong>Feedback continuo</strong> — para mejoramiento del sistema.
-        </div>
-        <div class="cita">
-          <strong>Storytelling personal</strong> — contar tu historia en la entrega de constancias.
-        </div>
-        <div class="cita">
-          <strong>20 Referencias</strong> — contactos de tu entorno que creas les puede beneficiar el inglés.
-        </div>
-        <p style="font-size:13px;color:var(--neutral-500);font-style:italic;">Este compromiso queda conectado con el Reto EVOLVE revisado en la estación anterior.</p>
-      </div>
-
       <div class="controles-avance">
-        <button class="btn-secundario" onclick="avanzarEstacion(4)">
+        <button class="btn-secundario" onclick="avanzarEstacion(3)">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
-          Volver al Reto
+          Volver al sistema
         </button>
-        <button class="btn-primario" onclick="avanzarEstacion(6)">
-          Continuar a Estación 6 — Test de Confirmación
+        <button class="btn-primario" onclick="toggleWhiteboard()">
+          Continuar a pizarra
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
         </button>
       </div>
     </article>
 
     <!-- ========================================================
-         ESTACIÓN 4 — RETO EVOLVE (Three Months Satisfaction Challenge)
+         ESTACIÓN 5 — RETO EVOLVE (Three Months Satisfaction Challenge)
          Textos legales según contrato vigente y manual de marca
          ======================================================== -->
-    <article class="estacion" id="estacion-4">
+    <article class="estacion" id="estacion-5">
 
-      <div class="estacion-titulo">Estación 4 · 5 minutos</div>
+      <div class="estacion-titulo">Estación 5 · 5 minutos</div>
       <h1 class="estacion-h1">Reto EVOLVE — la garantía de satisfacción</h1>
       <p class="estacion-h1-sub">No es una promesa de marketing: es un compromiso por escrito en el contrato.</p>
 
@@ -5408,12 +5701,12 @@ body[data-modalidad="virtual"] .azul-script-cita-virtual { display: block; }
       </div>
 
       <div class="controles-avance">
-        <button class="btn-secundario" onclick="avanzarEstacion(3)">
+        <button class="btn-secundario" onclick="avanzarEstacion(4)">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
-          Volver al sistema
+          Volver a Adquisición
         </button>
-        <button class="btn-primario" onclick="avanzarEstacion(5)">
-          Continuar a Estación 5 — Adquisición
+        <button class="btn-primario" onclick="avanzarEstacion(6)">
+          Continuar a Estación 6 — Test de Confirmación
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
         </button>
       </div>
@@ -5644,11 +5937,11 @@ body[data-modalidad="virtual"] .azul-script-cita-virtual { display: block; }
         </div>
         <div class="progreso-azul-paso" data-paso="4" onclick="avanzarEstacion(4)">
           <div class="progreso-azul-num"><span>4</span></div>
-          <div class="progreso-azul-label">Reto</div>
+          <div class="progreso-azul-label">Adquisición</div>
         </div>
         <div class="progreso-azul-paso" data-paso="5" onclick="avanzarEstacion(5)">
           <div class="progreso-azul-num"><span>5</span></div>
-          <div class="progreso-azul-label">Adquisición</div>
+          <div class="progreso-azul-label">Reto</div>
         </div>
         <div class="progreso-azul-paso" data-paso="6" onclick="avanzarEstacion(6)">
           <div class="progreso-azul-num"><span>6</span></div>
@@ -5753,6 +6046,15 @@ body[data-modalidad="virtual"] .azul-script-cita-virtual { display: block; }
             <li style="margin-bottom:4px;">Si proyectas tu vida a 3 años con el inglés dominado, ¿qué cambiaría?</li>
             <li>¿Y si pasan esos 3 años y no lograste aprenderlo? ¿Cómo te sentirías?</li>
           </ul>
+          <div class="ok-candado" data-ok="1">
+            <div class="ok-candado-h"><span>&#128274;</span><span>Candado final</span></div>
+            <div class="ok-candado-pregunta">Si encuentras un sistema donde te identificas, los horarios y herramientas encajan, y financieramente es viable, ¿empiezas tu entrenamiento hoy o lo seguirías postergando?</div>
+            <div class="ok-candado-opciones">
+              <button class="btn-candado-ok" data-ok="1" data-candado="hoy" onclick="registrarCandadoOK(1,'hoy')">Hoy</button>
+              <button class="btn-candado-ok" data-ok="1" data-candado="mas_adelante" onclick="registrarCandadoOK(1,'mas_adelante')">Más adelante</button>
+            </div>
+            <div class="ok-candado-status" id="candado-status-1"></div>
+          </div>
           <div class="ok-coaching-pregunta-rotulo">¿Cómo respondió?</div>
           <div class="ok-coaching-grid">
             <button class="btn-patron-azul" data-color="rojo" onclick="registrarPatron(1, 'rojo')"><span class="dot"></span><span><strong>Rápida y directa</strong><span class="detail">Va al grano</span></span></button>
@@ -5771,6 +6073,15 @@ body[data-modalidad="virtual"] .azul-script-cita-virtual { display: block; }
           </div>
           <div class="ok-coaching-tip">
             Buscamos que el evaluado entienda que aprender inglés no se logra en una semana ni con una app gratuita. La continuidad es <em>del usuario</em>, no del producto. La segunda pregunta (12 meses de membresía) testea su disposición real al compromiso.
+          </div>
+          <div class="ok-candado" data-ok="2">
+            <div class="ok-candado-h"><span>&#128274;</span><span>Candado final</span></div>
+            <div class="ok-candado-pregunta">¿Podemos contar con tu continuidad por los siguientes 12 meses en caso de empezar tu entrenamiento?</div>
+            <div class="ok-candado-opciones">
+              <button class="btn-candado-ok" data-ok="2" data-candado="si" onclick="registrarCandadoOK(2,'si')">Sí</button>
+              <button class="btn-candado-ok" data-ok="2" data-candado="no" onclick="registrarCandadoOK(2,'no')">No</button>
+            </div>
+            <div class="ok-candado-status" id="candado-status-2"></div>
           </div>
           <div class="ok-coaching-pregunta-rotulo">¿Cómo respondió?</div>
           <div class="ok-coaching-grid">
@@ -5795,6 +6106,15 @@ body[data-modalidad="virtual"] .azul-script-cita-virtual { display: block; }
           <div class="ok-coaching-alerta">
             <strong>🚨 Si responde "no, imposible"</strong>
             No insistir. Reorientar: <em>"Si no tienes los 45 minutos, el sistema no te va a funcionar. Y yo no quiero venderte algo que no vas a aprovechar. ¿Quieres que paremos aquí y volvamos cuando tengas el espacio?"</em>
+          </div>
+          <div class="ok-candado" data-ok="3">
+            <div class="ok-candado-h"><span>&#128274;</span><span>Candado final</span></div>
+            <div class="ok-candado-pregunta">En caso de iniciar, ¿podemos contar con tu compromiso de asistencia mínimo tres veces por semana y dedicación diaria al material?</div>
+            <div class="ok-candado-opciones">
+              <button class="btn-candado-ok" data-ok="3" data-candado="si" onclick="registrarCandadoOK(3,'si')">Sí</button>
+              <button class="btn-candado-ok" data-ok="3" data-candado="no" onclick="registrarCandadoOK(3,'no')">No</button>
+            </div>
+            <div class="ok-candado-status" id="candado-status-3"></div>
           </div>
           <div class="ok-coaching-pregunta-rotulo">¿Cómo respondió?</div>
           <div class="ok-coaching-grid">
@@ -5821,16 +6141,17 @@ body[data-modalidad="virtual"] .azul-script-cita-virtual { display: block; }
             <strong>🚨 Si dice "prefiero clases magistrales"</strong>
             <em>"Entonces probablemente el sistema EVOLVE no es para ti, y te lo digo con honestidad. Lo nuestro es aprendizaje autónomo con acompañamiento. Si necesitas educación tradicional con un profesor que te dicte clase, hay otras opciones en el mercado."</em>
           </div>
+          <div class="ok-candado" data-ok="4">
+            <div class="ok-candado-h"><span>&#128274;</span><span>Candado final</span></div>
+            <div class="ok-candado-pregunta">¿Esta decisión la puedes tomar de manera independiente o necesitas contar con el apoyo de alguien?</div>
+            <div class="ok-candado-opciones">
+              <button class="btn-candado-ok" data-ok="4" data-candado="independiente" onclick="registrarCandadoOK(4,'independiente')">Independiente</button>
+              <button class="btn-candado-ok" data-ok="4" data-candado="necesita_apoyo" onclick="registrarCandadoOK(4,'necesita_apoyo')">Necesita apoyo</button>
+            </div>
+            <div class="ok-candado-seguimiento">Si necesita apoyo, agenda la decisión con esa persona presente y evita que el cierre se enfríe fuera del Match.</div>
+            <div class="ok-candado-status" id="candado-status-4"></div>
+          </div>
           <div class="ok-coaching-pregunta-rotulo">¿Cómo respondió?</div>
-          <div class="azul-operador-captura">
-            <div class="ok-toggle-wrap">
-          <div class="ok-toggle-label">¿Decide solo o consulta con alguien?</div>
-          <div class="ok-toggle-opciones">
-            <button class="btn-ok-toggle" data-ok="4" data-opcion="independiente" onclick="registrarOpcionOK(4,'independiente')">✓ Decisión independiente</button>
-            <button class="btn-ok-toggle" data-ok="4" data-opcion="consulta" onclick="registrarOpcionOK(4,'consulta')">👥 Consulta con tercero</button>
-          </div>
-        </div>
-          </div>
           <div class="ok-coaching-grid">
             <button class="btn-patron-azul" data-color="rojo" onclick="registrarPatron(4, 'rojo')"><span class="dot"></span><span><strong>Rápida y directa</strong><span class="detail">Va al grano</span></span></button>
             <button class="btn-patron-azul" data-color="amarillo" onclick="registrarPatron(4, 'amarillo')"><span class="dot"></span><span><strong>Emocional</strong><span class="detail">Anécdotas, gestos</span></span></button>
@@ -5849,16 +6170,16 @@ body[data-modalidad="virtual"] .azul-script-cita-virtual { display: block; }
           <div class="ok-coaching-tip">
             Detecta disposición real <em>hoy</em>. La diferencia entre "cierro hoy" y "lo postergo" suele ser color: rojo cierra rápido, azul pide datos, verde pide tiempo, amarillo se ilusiona y avanza.
           </div>
+          <div class="ok-candado" data-ok="5">
+            <div class="ok-candado-h"><span>&#128274;</span><span>Candado final</span></div>
+            <div class="ok-candado-pregunta">Después de explicarte cómo funciona EVOLVE, ¿puedes dar una respuesta objetiva para pasar a adquisición y definir una fecha de inicio?</div>
+            <div class="ok-candado-opciones">
+              <button class="btn-candado-ok" data-ok="5" data-candado="puedo_decidir" onclick="registrarCandadoOK(5,'puedo_decidir')">Puedo decidir</button>
+              <button class="btn-candado-ok" data-ok="5" data-candado="no_puedo_decidir" onclick="registrarCandadoOK(5,'no_puedo_decidir')">No puedo decidir</button>
+            </div>
+            <div class="ok-candado-status" id="candado-status-5"></div>
+          </div>
           <div class="ok-coaching-pregunta-rotulo">¿Cómo respondió?</div>
-          <div class="azul-operador-captura">
-            <div class="ok-toggle-wrap">
-          <div class="ok-toggle-label">¿Adquiere hoy o posterga la decisión?</div>
-          <div class="ok-toggle-opciones">
-            <button class="btn-ok-toggle" data-ok="5" data-opcion="hoy" onclick="registrarOpcionOK(5,'hoy')">⚡ Adquiere hoy</button>
-            <button class="btn-ok-toggle" data-ok="5" data-opcion="posterga" onclick="registrarOpcionOK(5,'posterga')">⏸ Posterga la decisión</button>
-          </div>
-        </div>
-          </div>
           <div class="ok-coaching-grid">
             <button class="btn-patron-azul" data-color="rojo" onclick="registrarPatron(5, 'rojo')"><span class="dot"></span><span><strong>Rápida y directa</strong><span class="detail">Va al grano</span></span></button>
             <button class="btn-patron-azul" data-color="amarillo" onclick="registrarPatron(5, 'amarillo')"><span class="dot"></span><span><strong>Emocional</strong><span class="detail">Anécdotas, gestos</span></span></button>
@@ -5920,9 +6241,9 @@ body[data-modalidad="virtual"] .azul-script-cita-virtual { display: block; }
       </div>
     </div>
 
-    <!-- E5 · Contexto del operador (Adquisición) -->
-    <div class="azul-contexto" id="azul-contexto-e5" style="display:none;">
-      <span class="azul-contexto-tag">Estación 5 · Coaching de adquisición</span>
+    <!-- E4 · Contexto del operador (Adquisición) -->
+    <div class="azul-contexto" id="azul-contexto-e4" style="display:none;">
+      <span class="azul-contexto-tag">Estación 4 · Coaching de adquisición</span>
       <div class="azul-script-bloque" style="margin-top:12px;">
         <label class="azul-script-bloque-h" for="planSelectOperador">Selector privado de plan</label>
         <select class="plan-operador-select" id="planSelectOperador" onchange="seleccionarPlanWhiteboard(this.value)">
@@ -5930,9 +6251,8 @@ body[data-modalidad="virtual"] .azul-script-cita-virtual { display: block; }
           <option value="A">Plan A - contado</option>
           <option value="B2">Plan B - 2 cuotas</option>
           <option value="B3">Plan B - 3 cuotas</option>
-          <option value="B6">Plan B - 6 cuotas</option>
-          <option value="B8">Plan B - 8 cuotas</option>
-          <option value="B10">Plan B - 10 cuotas</option>
+          <option value="B68">Mostrar Plan 6 y 8</option>
+          <option value="B810">Mostrar Plan 8 y 10</option>
           <option value="C">Plan C - 12 cuotas</option>
           <option value="D">Plan D - 15 cuotas</option>
           <option value="E">Plan E - 18 cuotas</option>
@@ -5951,9 +6271,9 @@ body[data-modalidad="virtual"] .azul-script-cita-virtual { display: block; }
 
 
 
-    <!-- E4 - Contexto del operador (Reto EVOLVE) -->
-    <div class="azul-contexto" id="azul-contexto-e4" style="display:none;">
-      <span class="azul-contexto-tag">Estación 4 · Coaching del Reto</span>
+    <!-- E5 - Contexto del operador (Reto EVOLVE) -->
+    <div class="azul-contexto" id="azul-contexto-e5" style="display:none;">
+      <span class="azul-contexto-tag">Estación 5 · Coaching del Reto</span>
       <div class="azul-script-bloque"><div class="azul-script-bloque-h">Lectura de tranquilidad</div><div class="azul-script-nota">Esta seccion ayuda especialmente con perfiles azules y verdes: baja incertidumbre, ordena requisitos y evita que la garantia suene como promesa de resultado.</div></div>
       <div class="azul-script-bloque"><div class="azul-script-bloque-h">Antes de firmar</div><div class="azul-script-nota">Explica el reto antes de la firma y confirma que el adquirente entiende que es un acuerdo bilateral: disciplina del usuario y respaldo de EVOLVE.</div></div>
     </div>
@@ -5969,8 +6289,8 @@ body[data-modalidad="virtual"] .azul-script-cita-virtual { display: block; }
               <button class="btn-confirm-revisar" onclick="registrarConfirmacionE6(1,'revisar')">↩ Necesito repaso</button>
             </div>
           <div class="confirm-nota" id="cn-1">
-              <span>Retomemos la Estación 5 — Adquisición del material.</span>
-              <button class="btn-confirm-nav" onclick="avanzarEstacion(5)">Ir a Estación 5</button>
+              <span>Retomemos la Estación 4 — Adquisición del material.</span>
+              <button class="btn-confirm-nav" onclick="avanzarEstacion(4)">Ir a Estación 4</button>
             </div>
         </div>
         <div class="azul-script-bloque">
@@ -5980,8 +6300,8 @@ body[data-modalidad="virtual"] .azul-script-cita-virtual { display: block; }
               <button class="btn-confirm-revisar" onclick="registrarConfirmacionE6(2,'revisar')">↩ Necesito repaso</button>
             </div>
           <div class="confirm-nota" id="cn-2">
-              <span>Retomemos la Estación 5 — Adquisición del material.</span>
-              <button class="btn-confirm-nav" onclick="avanzarEstacion(5)">Ir a Estación 5</button>
+              <span>Retomemos la Estación 4 — Adquisición del material.</span>
+              <button class="btn-confirm-nav" onclick="avanzarEstacion(4)">Ir a Estación 4</button>
             </div>
         </div>
         <div class="azul-script-bloque">
@@ -5991,8 +6311,8 @@ body[data-modalidad="virtual"] .azul-script-cita-virtual { display: block; }
               <button class="btn-confirm-revisar" onclick="registrarConfirmacionE6(3,'revisar')">↩ Necesito repaso</button>
             </div>
           <div class="confirm-nota" id="cn-3">
-              <span>Retomemos la Estación 5 — Adquisición del material.</span>
-              <button class="btn-confirm-nav" onclick="avanzarEstacion(5)">Ir a Estación 5</button>
+              <span>Retomemos la Estación 4 — Adquisición del material.</span>
+              <button class="btn-confirm-nav" onclick="avanzarEstacion(4)">Ir a Estación 4</button>
             </div>
         </div>
         <div class="azul-script-bloque">
@@ -6002,8 +6322,8 @@ body[data-modalidad="virtual"] .azul-script-cita-virtual { display: block; }
               <button class="btn-confirm-revisar" onclick="registrarConfirmacionE6(4,'revisar')">↩ Necesito repaso</button>
             </div>
           <div class="confirm-nota" id="cn-4">
-              <span>Retomemos la Estación 4 — Reto EVOLVE.</span>
-              <button class="btn-confirm-nav" onclick="avanzarEstacion(4)">Ir a Estación 4</button>
+              <span>Retomemos la Estación 5 — Reto EVOLVE.</span>
+              <button class="btn-confirm-nav" onclick="avanzarEstacion(5)">Ir a Estación 5</button>
             </div>
         </div>
         <div class="azul-script-bloque">
@@ -6239,7 +6559,7 @@ body[data-modalidad="virtual"] .azul-script-cita-virtual { display: block; }
    ============================================================ */
 
 /* -- Versión y almacenamiento -- */
-const APP_VERSION = '3.10';
+const APP_VERSION = '3.12';
 const LS_KEY = 'evolveMatch_v0_3_1';
 const MAX_MATCHES_MOSTRADOS = 20;
 const SHEETS_WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbzIF66NkoNwImCPXzRqIrqNERgsHS7RFgLNrsDj4loUlamEgsU9bv08iuZ8cNlGx1FoPw/exec';
@@ -6310,8 +6630,8 @@ const LABELS_ESTACION = {
   1: 'Bienvenida',
   2: 'Diagnóstico',
   3: 'Sistema',
-  4: 'Reto',
-  5: 'Adquisición',
+  4: 'Adquisición',
+  5: 'Reto',
   6: 'Test de Confirmación',
   7: 'Decisión'
 };
@@ -6327,9 +6647,8 @@ const PLAN_LABELS = {
   A: 'Plan A - contado',
   B2: 'Plan B - 2 cuotas',
   B3: 'Plan B - 3 cuotas',
-  B6: 'Plan B - 6 cuotas',
-  B8: 'Plan B - 8 cuotas',
-  B10: 'Plan B - 10 cuotas',
+  B68: 'Mostrar Plan 6 y 8',
+  B810: 'Mostrar Plan 8 y 10',
   C: 'Plan C - 12 cuotas',
   D: 'Plan D - 15 cuotas',
   E: 'Plan E - 18 cuotas'
@@ -6356,6 +6675,7 @@ const estado = {
   patrones: { 1: null, 2: null, 3: null, 4: null, 5: null },
   puntos: { rojo: 0, amarillo: 0, verde: 0, azul: 0 },
   respuestasOK: { 1: '', 2: '', 3: '', 4: '', 5: '' },
+  candadosOK: { 1: null, 2: null, 3: null, 4: null, 5: null },
   colorDominante: null,
   decision: null,
   opcionesOK: { 4: null, 5: null },
@@ -6387,6 +6707,7 @@ function cargarApp() {
     Object.values(app.matches).forEach(m => {
       if (!m.perfilEvaluado) m.perfilEvaluado = perfilEvaluadoVacio();
       if (m.operadorCelular == null) m.operadorCelular = '';
+      if (!m.candadosOK) m.candadosOK = { 1: null, 2: null, 3: null, 4: null, 5: null };
       if (m.planSeleccionadoCodigo == null) m.planSeleccionadoCodigo = '';
       if (m.planSeleccionado == null) m.planSeleccionado = '';
       if (!m.registroSheets) m.registroSheets = { enviado: false, ts: '', error: '' };
@@ -6406,6 +6727,7 @@ function sincronizarMatchActivo() {
   m.patrones = estado.patrones;
   m.puntos = estado.puntos;
   m.respuestasOK = estado.respuestasOK;
+  m.candadosOK = estado.candadosOK;
   m.colorDominante = estado.colorDominante;
   m.decision = estado.decision;
   m.opcionesOK       = estado.opcionesOK;
@@ -6981,6 +7303,7 @@ function crearMatch(evaluadoNombre = '') {
     patrones: { 1: null, 2: null, 3: null, 4: null, 5: null },
     puntos: { rojo: 0, amarillo: 0, verde: 0, azul: 0 },
     respuestasOK: { 1: '', 2: '', 3: '', 4: '', 5: '' },
+    candadosOK: { 1: null, 2: null, 3: null, 4: null, 5: null },
     colorDominante: null,
     decision: null,
     opcionesOK: { 4: null, 5: null },
@@ -7024,6 +7347,7 @@ function cargarEstadoDelMatch(m) {
   estado.patrones = Object.assign({1:null,2:null,3:null,4:null,5:null}, m.patrones);
   estado.puntos = Object.assign({rojo:0,amarillo:0,verde:0,azul:0}, m.puntos);
   estado.respuestasOK = Object.assign({1:'',2:'',3:'',4:'',5:''}, m.respuestasOK || {});
+  estado.candadosOK = Object.assign({1:null,2:null,3:null,4:null,5:null}, m.candadosOK || {});
   estado.colorDominante = m.colorDominante || null;
   estado.decision = m.decision || null;
   estado.opcionesOK       = Object.assign({4:null,5:null}, m.opcionesOK || {});
@@ -7232,6 +7556,11 @@ function resetearUI() {
   document.querySelectorAll('.ok-coaching-panel').forEach(p => p.classList.remove('activa', 'completa'));
   const primerCoaching = document.querySelector('.ok-coaching-panel[data-ok="1"]');
   if (primerCoaching) primerCoaching.classList.add('activa');
+  document.querySelectorAll('.btn-candado-ok').forEach(btn => btn.classList.remove('activo'));
+  document.querySelectorAll('.ok-candado-status').forEach(status => {
+    status.classList.remove('visible');
+    status.textContent = '';
+  });
   // Textareas: vaciar
   document.querySelectorAll('.ok-respuesta-textarea').forEach(t => { t.value = ''; });
   document.querySelectorAll('[data-perfil-evaluado]').forEach(el => { el.value = ''; });
@@ -7311,6 +7640,7 @@ function aplicarUIDelEstado() {
   if (primeraCardNoCompleta) primeraCardNoCompleta.classList.add('activa');
   const primeraCoachNoCompleta = document.querySelector('.ok-coaching-panel:not(.completa)');
   if (primeraCoachNoCompleta) primeraCoachNoCompleta.classList.add('activa');
+  actualizarCandadosUI();
   // Barras y chip de color
   actualizarBarras();
   if (Object.values(estado.patrones).filter(v => v).length === 5) {
@@ -7498,6 +7828,17 @@ function avanzarEstacion(num) {
     else { storyvid.pause(); }
   }
 
+  if (num !== 4) {
+    const wbWrapper = document.getElementById('wb-iframe-wrapper');
+    const wbBtn = document.getElementById('btn-wb-abrir');
+    if (wbWrapper) wbWrapper.classList.remove('abierto');
+    if (wbBtn) wbBtn.style.display = '';
+  }
+
+  const cliente = document.querySelector('.vista-cliente');
+  const entrenador = document.querySelector('.vista-entrenador');
+  if (cliente) cliente.scrollTo({ top: 0, behavior: 'smooth' });
+  if (entrenador) entrenador.scrollTo({ top: 0, behavior: 'smooth' });
   window.scrollTo({ top: 0, behavior: 'smooth' });
 
   if (previo !== num && app.matchActivoId) {
@@ -7609,7 +7950,41 @@ document.querySelectorAll('.ok-respuesta-textarea').forEach(textarea => {
 /* ============================================================
    DETECCIÓN de color (Estación 2)
    ============================================================ */
+const CANDADO_OK_LABELS = {
+  hoy: 'Hoy',
+  mas_adelante: 'Más adelante',
+  si: 'Sí',
+  no: 'No',
+  independiente: 'Independiente',
+  necesita_apoyo: 'Necesita apoyo',
+  puedo_decidir: 'Puedo decidir',
+  no_puedo_decidir: 'No puedo decidir'
+};
+
+function registrarCandadoOK(okNum, opcion) {
+  estado.candadosOK[okNum] = opcion;
+  actualizarCandadosUI();
+  loggear('OK ' + okNum + ' candado', CANDADO_OK_LABELS[opcion] || opcion);
+}
+
+function actualizarCandadosUI() {
+  Object.entries(estado.candadosOK || {}).forEach(([okNum, opcion]) => {
+    document.querySelectorAll('.btn-candado-ok[data-ok="' + okNum + '"]').forEach(btn => {
+      btn.classList.toggle('activo', btn.dataset.candado === opcion);
+    });
+    const status = document.getElementById('candado-status-' + okNum);
+    if (status) {
+      status.classList.toggle('visible', Boolean(opcion));
+      status.textContent = opcion ? 'Candado registrado: ' + (CANDADO_OK_LABELS[opcion] || opcion) : '';
+    }
+  });
+}
+
 function registrarPatron(okNum, color) {
+  if (!estado.candadosOK || !estado.candadosOK[okNum]) {
+    alert('Registra primero el candado final de este bloque antes de seleccionar el color.');
+    return;
+  }
   const patronAnterior = estado.patrones[okNum];
   if (patronAnterior) estado.puntos[patronAnterior] = Math.max(0, estado.puntos[patronAnterior] - 2);
   estado.patrones[okNum] = color;

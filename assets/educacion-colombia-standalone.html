@@ -132,6 +132,7 @@ document.addEventListener('DOMContentLoaded', async function() {
 
     setStatus('Rendering...');
     for (const uuid of uuids) template = template.split(uuid).join(blobUrls[uuid]);
+    template = template.replace('<deck-stage width="1920" height="1080">', '<deck-stage width="1920" height="1080" no-rail>');
 
     // Strip integrity + crossorigin — blob URLs from a file:// document inherit
     // a null origin, so crossorigin forces a CORS fetch that SRI then rejects.
