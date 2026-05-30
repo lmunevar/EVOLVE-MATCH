@@ -4582,12 +4582,12 @@ body[data-modalidad="virtual"] .azul-script-cita-virtual { display: block; }
     }
 
     .wb-header {
-      height: 48px;
+      height: 42px;
       display: flex;
       align-items: center;
       justify-content: center;
       gap: clamp(18px, 3vw, 56px);
-      padding: 6px clamp(12px, 2vw, 38px);
+      padding: 4px clamp(12px, 2vw, 38px);
       border-bottom: 1px solid #eceff1;
     }
 
@@ -4600,70 +4600,102 @@ body[data-modalidad="virtual"] .azul-script-cita-virtual { display: block; }
 
     .wb-title {
       margin: 0;
-      font-size: clamp(20px, 2.1vw, 34px);
+      font-size: clamp(18px, 1.7vw, 28px);
       line-height: 1;
       font-weight: 600;
-      letter-spacing: 5px;
+      letter-spacing: 4px;
     }
 
     .wb-shell {
       min-height: 0;
       display: grid;
-      grid-template-columns: 204px 1fr;
-      border: 1px solid var(--line);
+      grid-template-columns: 82px minmax(0, 1fr);
+      border: 1px solid rgba(21, 157, 139, .38);
       border-top: 0;
       border-radius: 12px;
       overflow: hidden;
       margin: 0 6px 6px;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.45);
     }
 
     .wb-tools {
-      background: var(--panel);
-      border-right: 1px solid var(--line);
-      padding: 12px 10px;
+      background:
+        linear-gradient(180deg, #07141f 0%, #081923 56%, #051018 100%);
+      border-right: 1px solid rgba(21, 157, 139, .42);
+      padding: 7px 6px;
       overflow: auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 5px;
+      scrollbar-width: thin;
+      scrollbar-color: rgba(125,184,162,.46) transparent;
     }
 
     .tool-section {
-      margin: 0 0 10px;
+      width: 100%;
+      margin: 0;
+      display: grid;
+      place-items: center;
+      gap: 3px;
+    }
+
+    .tool-section + .tool-section {
+      border-top: 1px solid rgba(255,255,255,.09);
+      padding-top: 5px;
     }
 
     .tool-label {
       display: block;
-      margin: 0 0 5px;
-      font-size: 11.5px;
-      font-weight: 700;
-      letter-spacing: .2px;
+      margin: 0;
+      max-width: 58px;
+      color: rgba(234, 243, 238, .76);
+      font-size: 8px;
+      font-weight: 800;
+      letter-spacing: .06em;
+      line-height: 1.05;
+      text-align: center;
+      text-transform: uppercase;
     }
 
     .tool-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
+      width: 100%;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      justify-items: center;
+      gap: 4px;
     }
 
     .tool-button,
     .plan-select {
-      border: 1px solid #cfd3d8;
-      background: var(--tool);
-      color: #050505;
-      border-radius: 8px;
-      box-shadow: 0 1px 2px rgba(0, 0, 0, .08);
-      min-height: 36px;
-      transition: border-color .16s ease, background .16s ease, transform .16s ease;
+      border: 1px solid rgba(125,184,162,.34);
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.13), rgba(255,255,255,.04));
+      color: #eef7f4;
+      border-radius: 10px;
+      box-shadow:
+        0 8px 18px rgba(0,0,0,.23),
+        inset 0 1px 0 rgba(255,255,255,.18);
+      min-height: 30px;
+      transition: border-color .16s ease, background .16s ease, transform .16s ease, box-shadow .16s ease;
     }
 
     .tool-button {
-      width: 46px;
+      width: 32px;
+      height: 30px;
       display: inline-grid;
       place-items: center;
-      font: 600 20px/1 Arial, Helvetica, sans-serif;
+      font: 800 16px/1 Arial, Helvetica, sans-serif;
       cursor: pointer;
     }
 
     .tool-button:hover,
     .plan-select:hover {
-      border-color: #aeb4bc;
+      border-color: rgba(125,184,162,.82);
+      box-shadow:
+        0 10px 22px rgba(0,0,0,.28),
+        0 0 0 1px rgba(21,157,139,.18),
+        inset 0 1px 0 rgba(255,255,255,.2);
     }
 
     .tool-button:active {
@@ -4671,31 +4703,50 @@ body[data-modalidad="virtual"] .azul-script-cita-virtual { display: block; }
     }
 
     .tool-button.active {
-      background: var(--active);
-      border-color: var(--evolve-teal);
+      background:
+        linear-gradient(180deg, rgba(21,157,139,.38), rgba(21,157,139,.16));
+      border-color: rgba(125,184,162,.95);
+      color: #ffffff;
+      box-shadow:
+        0 0 0 1px rgba(21,157,139,.36),
+        0 0 18px rgba(21,157,139,.32),
+        inset 0 1px 0 rgba(255,255,255,.25);
     }
 
     .tool-button.wide {
-      width: 66px;
+      width: 32px;
+    }
+
+    .tool-row .tool-button:only-child,
+    .tool-row .tool-button:last-child:nth-child(odd) {
+      grid-column: 1 / -1;
+      justify-self: center;
+    }
+
+    .tool-button.clear-all {
+      font-size: 11px;
+      letter-spacing: .06em;
     }
 
     .tool-button.dark {
-      background: #1f2024;
+      background:
+        linear-gradient(180deg, rgba(19,31,43,.96), rgba(8,14,22,.96));
       color: #ffffff;
     }
 
     .pen-sample {
-      width: 42px;
-      height: 18px;
+      width: 27px;
+      height: 12px;
       display: block;
     }
 
     .color-dot {
-      width: 22px;
-      height: 22px;
+      width: 16px;
+      height: 16px;
       border-radius: 50%;
       display: block;
-      border: 1px solid rgba(0, 0, 0, .18);
+      border: 2px solid rgba(255,255,255,.82);
+      box-shadow: 0 0 0 1px rgba(0,0,0,.22);
     }
 
     .plan-select {
@@ -4715,6 +4766,31 @@ body[data-modalidad="virtual"] .azul-script-cita-virtual { display: block; }
       background-size: 9px 9px, 9px 9px;
       background-repeat: no-repeat;
       cursor: pointer;
+    }
+
+    .floating-calculator {
+      position: absolute;
+      right: clamp(14px, 2.2vw, 34px);
+      bottom: clamp(14px, 2.2vw, 34px);
+      z-index: 5;
+      width: min(246px, calc(100% - 28px));
+      padding: 12px;
+      border: 1px solid rgba(21,157,139,.28);
+      border-radius: 16px;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.92), rgba(245,250,248,.88));
+      box-shadow:
+        0 22px 55px rgba(14,34,52,.16),
+        0 0 0 1px rgba(255,255,255,.78) inset;
+      backdrop-filter: blur(10px);
+    }
+
+    .calc-title {
+      margin: 0 0 8px;
+      color: var(--evolve-blue);
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: .12em;
     }
 
     .calc-panel {
@@ -4775,7 +4851,7 @@ body[data-modalidad="virtual"] .azul-script-cita-virtual { display: block; }
     .wb-board {
       position: relative;
       min-width: 0;
-      min-height: calc(100vh - 64px);
+      min-height: calc(100vh - 54px);
       background:
         radial-gradient(circle at 28% 34%, rgba(21, 157, 139, .025), transparent 32%),
         #ffffff;
@@ -4922,9 +4998,8 @@ body[data-modalidad="virtual"] .azul-script-cita-virtual { display: block; }
 
     @media (max-width: 920px) {
       .wb-header {
-        height: auto;
-        min-height: 58px;
-        gap: 16px;
+        min-height: 40px;
+        gap: 12px;
       }
 
       .wb-title {
@@ -4932,36 +5007,39 @@ body[data-modalidad="virtual"] .azul-script-cita-virtual { display: block; }
       }
 
       .wb-shell {
-        grid-template-columns: 1fr;
-        grid-template-rows: auto 1fr;
+        grid-template-columns: 76px minmax(0, 1fr);
       }
 
       .wb-tools {
-        display: flex;
-        gap: 18px;
-        overflow-x: auto;
-        padding: 14px;
-        border-right: 0;
-        border-bottom: 1px solid var(--line);
+        padding: 7px 5px;
+        gap: 5px;
+        border-right: 1px solid rgba(21, 157, 139, .42);
+        border-bottom: 0;
       }
 
       .tool-section {
-        min-width: max-content;
-        margin: 0;
+        min-width: 0;
       }
 
       .tool-button {
-        width: 54px;
-        min-height: 44px;
-        font-size: 23px;
+        width: 30px;
+        height: 30px;
+        min-height: 30px;
+        font-size: 16px;
       }
 
       .tool-button.wide {
-        width: 80px;
+        width: 30px;
       }
 
       .wb-board {
-        min-height: calc(100vh - 188px);
+        min-height: calc(100vh - 54px);
+      }
+
+      .floating-calculator {
+        width: 218px;
+        right: 12px;
+        bottom: 12px;
       }
     }
 
@@ -4977,6 +5055,31 @@ body[data-modalidad="virtual"] .azul-script-cita-virtual { display: block; }
 
       .wb-title {
         font-size: 19px;
+      }
+
+      .wb-shell {
+        grid-template-columns: 70px minmax(0, 1fr);
+      }
+
+      .wb-tools {
+        padding: 7px 5px;
+      }
+
+      .tool-label {
+        max-width: 46px;
+        font-size: 7px;
+      }
+
+      .tool-button,
+      .tool-button.wide {
+        width: 28px;
+        height: 28px;
+        min-height: 28px;
+      }
+
+      .floating-calculator {
+        width: min(196px, calc(100% - 20px));
+        padding: 10px;
       }
 
       .plan-output {
@@ -5010,6 +5113,7 @@ body[data-modalidad="virtual"] .azul-script-cita-virtual { display: block; }
         &lt;/div&gt;
 
         &lt;div class=&quot;tool-section&quot;&gt;
+          &lt;span class=&quot;tool-label&quot;&gt;COLOR&lt;/span&gt;
           &lt;div class=&quot;tool-row&quot;&gt;
             &lt;button class=&quot;tool-button&quot; type=&quot;button&quot; data-color=&quot;#000000&quot; aria-label=&quot;Color negro&quot; title=&quot;Negro&quot;&gt;&lt;span class=&quot;color-dot&quot; style=&quot;background:#000000&quot;&gt;&lt;/span&gt;&lt;/button&gt;
             &lt;button class=&quot;tool-button&quot; type=&quot;button&quot; data-color=&quot;#e50914&quot; aria-label=&quot;Color rojo&quot; title=&quot;Rojo&quot;&gt;&lt;span class=&quot;color-dot&quot; style=&quot;background:#e50914&quot;&gt;&lt;/span&gt;&lt;/button&gt;
@@ -5018,26 +5122,26 @@ body[data-modalidad="virtual"] .azul-script-cita-virtual { display: block; }
         &lt;/div&gt;
 
         &lt;div class=&quot;tool-section&quot;&gt;
-          &lt;span class=&quot;tool-label&quot;&gt;TEXT AND NUMBERS&lt;/span&gt;
+          &lt;span class=&quot;tool-label&quot; title=&quot;TEXT AND NUMBERS&quot;&gt;TEXT&lt;/span&gt;
           &lt;div class=&quot;tool-row&quot;&gt;
             &lt;button class=&quot;tool-button&quot; type=&quot;button&quot; data-tool=&quot;text&quot; aria-label=&quot;Texto&quot; title=&quot;Texto&quot;&gt;T&lt;/button&gt;
           &lt;/div&gt;
         &lt;/div&gt;
         &lt;div class=&quot;tool-section&quot;&gt;
-          &lt;span class=&quot;tool-label&quot;&gt;SELECT &amp;amp; RESIZE&lt;/span&gt;
+          &lt;span class=&quot;tool-label&quot; title=&quot;SELECT &amp;amp; RESIZE&quot;&gt;MOVE&lt;/span&gt;
           &lt;div class=&quot;tool-row&quot;&gt;
             &lt;button class=&quot;tool-button&quot; type=&quot;button&quot; data-tool=&quot;select&quot; aria-label=&quot;Seleccionar&quot; title=&quot;Seleccionar&quot;&gt;⌖&lt;/button&gt;
           &lt;/div&gt;
         &lt;/div&gt;
         &lt;div class=&quot;tool-section&quot;&gt;
-          &lt;span class=&quot;tool-label&quot;&gt;BORRADOR&lt;/span&gt;
+          &lt;span class=&quot;tool-label&quot;&gt;ERASE&lt;/span&gt;
           &lt;div class=&quot;tool-row&quot;&gt;
             &lt;button class=&quot;tool-button dark&quot; type=&quot;button&quot; data-tool=&quot;eraser&quot; aria-label=&quot;Borrador&quot; title=&quot;Borrador&quot;&gt;⌫&lt;/button&gt;
-            &lt;button class=&quot;tool-button wide&quot; type=&quot;button&quot; id=&quot;clearButton&quot; aria-label=&quot;Limpiar todo&quot; title=&quot;Limpiar todo&quot;&gt;Todo&lt;/button&gt;
+            &lt;button class=&quot;tool-button wide clear-all&quot; type=&quot;button&quot; id=&quot;clearButton&quot; aria-label=&quot;Limpiar todo&quot; title=&quot;Limpiar todo&quot;&gt;ALL&lt;/button&gt;
           &lt;/div&gt;
         &lt;/div&gt;
         &lt;div class=&quot;tool-section&quot;&gt;
-          &lt;span class=&quot;tool-label&quot;&gt;MATH OPERATORS&lt;/span&gt;
+          &lt;span class=&quot;tool-label&quot; title=&quot;MATH OPERATORS&quot;&gt;MATH&lt;/span&gt;
           &lt;div class=&quot;tool-row&quot;&gt;
             &lt;button class=&quot;tool-button&quot; type=&quot;button&quot; data-tool=&quot;stamp&quot; data-stamp=&quot;x&quot; aria-label=&quot;Multiplicar&quot; title=&quot;Multiplicar&quot;&gt;×&lt;/button&gt;
             &lt;button class=&quot;tool-button&quot; type=&quot;button&quot; data-tool=&quot;stamp&quot; data-stamp=&quot;+&quot; aria-label=&quot;Sumar&quot; title=&quot;Sumar&quot;&gt;+&lt;/button&gt;
@@ -5047,7 +5151,32 @@ body[data-modalidad="virtual"] .azul-script-cita-virtual { display: block; }
         &lt;/div&gt;
 
         &lt;div class=&quot;tool-section&quot;&gt;
-          &lt;span class=&quot;tool-label&quot;&gt;CALCULADORA&lt;/span&gt;
+          &lt;span class=&quot;tool-label&quot; title=&quot;SYMBOLS&quot;&gt;MARK&lt;/span&gt;
+          &lt;div class=&quot;tool-row&quot;&gt;
+            &lt;button class=&quot;tool-button&quot; type=&quot;button&quot; data-tool=&quot;stamp&quot; data-stamp=&quot;✓&quot; aria-label=&quot;Check&quot; title=&quot;Check&quot;&gt;✓&lt;/button&gt;
+            &lt;button class=&quot;tool-button&quot; type=&quot;button&quot; data-tool=&quot;stamp&quot; data-stamp=&quot;→&quot; aria-label=&quot;Flecha&quot; title=&quot;Flecha&quot;&gt;→&lt;/button&gt;
+            &lt;button class=&quot;tool-button dark&quot; type=&quot;button&quot; id=&quot;undoButton&quot; aria-label=&quot;Deshacer&quot; title=&quot;Deshacer&quot;&gt;↶&lt;/button&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;div class=&quot;tool-section&quot;&gt;
+          &lt;span class=&quot;tool-label&quot; title=&quot;SHAPES&quot;&gt;SHAPE&lt;/span&gt;
+          &lt;div class=&quot;tool-row&quot;&gt;
+            &lt;button class=&quot;tool-button&quot; type=&quot;button&quot; data-tool=&quot;circle&quot; aria-label=&quot;Circulo&quot; title=&quot;Circulo&quot;&gt;○&lt;/button&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/aside&gt;
+
+      &lt;main class=&quot;wb-board&quot; id=&quot;board&quot;&gt;
+        &lt;div class=&quot;fixed-plan is-empty&quot; id=&quot;fixedPlan&quot; aria-live=&quot;polite&quot;&gt;
+          &lt;p class=&quot;plan-kicker&quot; id=&quot;planKicker&quot;&gt;&lt;/p&gt;
+          &lt;p class=&quot;plan-output&quot; id=&quot;planOutput&quot;&gt;&lt;/p&gt;
+          &lt;p class=&quot;plan-note&quot; id=&quot;planNote&quot;&gt;&lt;/p&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;object-layer&quot; id=&quot;objectLayer&quot; aria-hidden=&quot;true&quot;&gt;&lt;/div&gt;
+        &lt;canvas id=&quot;whiteboardCanvas&quot;&gt;&lt;/canvas&gt;
+        &lt;aside class=&quot;floating-calculator&quot; aria-label=&quot;Calculadora flotante&quot;&gt;
+          &lt;div class=&quot;calc-title&quot;&gt;CALCULADORA&lt;/div&gt;
           &lt;div class=&quot;calc-panel&quot;&gt;
             &lt;input class=&quot;calc-display&quot; id=&quot;calcDisplay&quot; type=&quot;text&quot; inputmode=&quot;decimal&quot; aria-label=&quot;Calculadora&quot; placeholder=&quot;0&quot;&gt;
             &lt;div class=&quot;calc-grid&quot;&gt;
@@ -5073,32 +5202,7 @@ body[data-modalidad="virtual"] .azul-script-cita-virtual { display: block; }
               &lt;button class=&quot;calc-action&quot; type=&quot;button&quot; id=&quot;insertCalcButton&quot;&gt;Insertar&lt;/button&gt;
             &lt;/div&gt;
           &lt;/div&gt;
-        &lt;/div&gt;
-        &lt;div class=&quot;tool-section&quot;&gt;
-          &lt;span class=&quot;tool-label&quot;&gt;SYMBOLS&lt;/span&gt;
-          &lt;div class=&quot;tool-row&quot;&gt;
-            &lt;button class=&quot;tool-button&quot; type=&quot;button&quot; data-tool=&quot;stamp&quot; data-stamp=&quot;✓&quot; aria-label=&quot;Check&quot; title=&quot;Check&quot;&gt;✓&lt;/button&gt;
-            &lt;button class=&quot;tool-button&quot; type=&quot;button&quot; data-tool=&quot;stamp&quot; data-stamp=&quot;→&quot; aria-label=&quot;Flecha&quot; title=&quot;Flecha&quot;&gt;→&lt;/button&gt;
-            &lt;button class=&quot;tool-button dark&quot; type=&quot;button&quot; id=&quot;undoButton&quot; aria-label=&quot;Deshacer&quot; title=&quot;Deshacer&quot;&gt;↶&lt;/button&gt;
-          &lt;/div&gt;
-        &lt;/div&gt;
-
-        &lt;div class=&quot;tool-section&quot;&gt;
-          &lt;span class=&quot;tool-label&quot;&gt;SHAPES&lt;/span&gt;
-          &lt;div class=&quot;tool-row&quot;&gt;
-            &lt;button class=&quot;tool-button&quot; type=&quot;button&quot; data-tool=&quot;circle&quot; aria-label=&quot;Circulo&quot; title=&quot;Circulo&quot;&gt;○&lt;/button&gt;
-          &lt;/div&gt;
-        &lt;/div&gt;
-      &lt;/aside&gt;
-
-      &lt;main class=&quot;wb-board&quot; id=&quot;board&quot;&gt;
-        &lt;div class=&quot;fixed-plan is-empty&quot; id=&quot;fixedPlan&quot; aria-live=&quot;polite&quot;&gt;
-          &lt;p class=&quot;plan-kicker&quot; id=&quot;planKicker&quot;&gt;&lt;/p&gt;
-          &lt;p class=&quot;plan-output&quot; id=&quot;planOutput&quot;&gt;&lt;/p&gt;
-          &lt;p class=&quot;plan-note&quot; id=&quot;planNote&quot;&gt;&lt;/p&gt;
-        &lt;/div&gt;
-        &lt;div class=&quot;object-layer&quot; id=&quot;objectLayer&quot; aria-hidden=&quot;true&quot;&gt;&lt;/div&gt;
-        &lt;canvas id=&quot;whiteboardCanvas&quot;&gt;&lt;/canvas&gt;
+        &lt;/aside&gt;
         &lt;form class=&quot;text-popover&quot; id=&quot;textPopover&quot;&gt;
           &lt;input id=&quot;textInput&quot; type=&quot;text&quot; autocomplete=&quot;off&quot; placeholder=&quot;Escribe aqui&quot;&gt;
           &lt;button type=&quot;submit&quot;&gt;Agregar&lt;/button&gt;
@@ -6559,7 +6663,7 @@ body[data-modalidad="virtual"] .azul-script-cita-virtual { display: block; }
    ============================================================ */
 
 /* -- Versión y almacenamiento -- */
-const APP_VERSION = '3.12';
+const APP_VERSION = '3.13';
 const LS_KEY = 'evolveMatch_v0_3_1';
 const MAX_MATCHES_MOSTRADOS = 20;
 const SHEETS_WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbzIF66NkoNwImCPXzRqIrqNERgsHS7RFgLNrsDj4loUlamEgsU9bv08iuZ8cNlGx1FoPw/exec';
@@ -8213,4 +8317,3 @@ function actualizarResumen() {
 </script>
 </body>
 </html>
-
